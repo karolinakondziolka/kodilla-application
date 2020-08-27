@@ -13,12 +13,17 @@ public class DbService {
     @Autowired
     private TaskRepository repository;
 
+
     public List<Task> getAllTasks(){
         return repository.findAll();
     }
 
     public Optional<Task> getTaskById() {
         return repository.findById();
+    }
+
+    public Task saveTask(final Task task) {
+        return repository.save(task);
     }
 
 }

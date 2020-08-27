@@ -5,6 +5,7 @@ import com.crud.tasks.domain.TaskDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -16,7 +17,7 @@ public class TaskMapper {
                 taskDto.getContent());
     }
 
-    public TaskDto mapToTaskDto (final Task task) {
+    public TaskDto mapToTaskDto(final Task task) {
         return new TaskDto(
                 task.getId(),
                 task.getTitle(),
@@ -28,6 +29,6 @@ public class TaskMapper {
                 .map(t -> new TaskDto(t.getId(), t.getTitle(), t.getContent()))
                 .collect(Collectors.toList());
     }
-
-
 }
+
+
